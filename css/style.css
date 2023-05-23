@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: 'inter', sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.textArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+  width: 600px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+  font-size: 15px;
+}
+
+i.fa-plus {
+  position: absolute;
+  right: 25%;
+  top: 10%;
+  transform: translateY(-50%);
+  color: #fff;
+  background-color: green;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+i.fa-minus {
+  position: absolute;
+  right: 25%;
+  top: 10%;
+  transform: translateY(-50%);
+  color: #fff;
+  background-color: red;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+i.fa-minus.show {
+  visibility: visible;
+}
+i.fa-plus:hover {
+  background-color: darkgreen;
+}
+i.fa-minus:hover {
+  background-color: red;
+}
+
+
+.noteText {
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-family: 'inter', sans-serif;
+  display: none;
+}
+
+#notes {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1200px;
+  grid-gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.note {
+  position: relative;
+  width: 270px;
+  background: #fff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin-top: 8px;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+.note p {
+  padding-bottom: 25px;
+  word-wrap: break-word;
+}
+.note i.fa-trash.show {
+  visibility: visible;
+}
+.note i.fa-trash{
+  position: relative;
+  visibility: hidden;
+  top: 90%;
+  left: 80%;
+  font-size: 30px;
+  color: red;
+}
+
+.note i.fa-edit {
+  position: relative;
+  visibility: visible;
+  top: 90%;
+  left: 70%;
+  font-size: 30px;
+  color: blue;
+}
+
+.note-now {
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+.note:hover {
+  box-shadow: 0px 2px 10px rgba(150, 150, 150, 0.4);
+}
+
+/* mobile */
+@media only screen and (max-width: 500px) {
+  .text-area {
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+  }
+  #notes {
+    grid-template-columns: 1fr;
+    
+  }
+
+}
