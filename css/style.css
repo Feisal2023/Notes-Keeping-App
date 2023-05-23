@@ -147,5 +147,8 @@ i.fa-minus:hover {
     grid-template-columns: 1fr;
     
   }
-
+  i.fa-plus,
+  i.fa-minus {
+    top: 15px;
+  }
 }
