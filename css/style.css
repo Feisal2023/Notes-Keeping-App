@@ -39,7 +39,7 @@ body {
 i.fa-plus {
   position: absolute;
   right: 25%;
-  top: 10%;
+  top: 5%;
   transform: translateY(-50%);
   color: #fff;
   background-color: green;
@@ -50,7 +50,7 @@ i.fa-plus {
 i.fa-minus {
   position: absolute;
   right: 25%;
-  top: 10%;
+  top: 30%;
   transform: translateY(-50%);
   color: #fff;
   background-color: red;
@@ -135,6 +135,22 @@ i.fa-minus:hover {
 .note:hover {
   box-shadow: 0px 2px 10px rgba(150, 150, 150, 0.4);
 }
+/* CSS Styles for the custom button */
+.create-note {
+  display: none; 
+  background-color: #4CAF50; 
+  border-radius: 10px;
+  color: white;
+  padding: 10px 20px; 
+  border: none;
+  cursor: pointer; 
+}
+
+.create-note:hover {
+  background-color: #45a049; /* Change the background color on hover */
+}
+
+
 
 /* mobile */
 @media only screen and (max-width: 500px) {
