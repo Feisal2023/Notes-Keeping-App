@@ -149,6 +149,7 @@ i.fa-minus:hover {
   }
   i.fa-plus,
   i.fa-minus {
-    top: 15px;
+    right: 15%;
+    top: 15%;
   }
 }
