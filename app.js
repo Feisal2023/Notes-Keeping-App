@@ -200,22 +200,28 @@ document.addEventListener('click', (event) => {
       // Get existing notes from localStorage
       const existingNotes = JSON.parse(localStorage.getItem('notes')) || [];
 
-      // Filter out the deleted note from the existing notes array
-      const updatedNotes = existingNotes.filter((note) => {
+      // Find the index of the note in the existing notes array
+      const noteIndex = existingNotes.findIndex((note) => {
         return (
-          note.title !== noteElement.querySelector('.title-text').textContent ||
-          note.content !== noteElement.querySelector('.note-blog').textContent
+          note.title === noteElement.querySelector('.title-text').textContent &&
+          note.content === noteElement.querySelector('.note-blog').textContent
         );
       });
 
-      // Update the notes array in localStorage
-      localStorage.setItem('notes', JSON.stringify(updatedNotes));
+      // Remove the note from the existing notes array
+      if (noteIndex > -1) {
+        existingNotes.splice(noteIndex, 1);
 
-      // Show a success message
-      showMessageForNote('Note deleted successfully');
+        // Update the notes array in localStorage
+        localStorage.setItem('notes', JSON.stringify(existingNotes));
+
+        // Show a success message
+        showMessageForNote('Note deleted successfully');
+      }
     }
   }
 });
+
 
 
 
