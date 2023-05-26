@@ -192,11 +192,11 @@ document.addEventListener('mouseover', (event) => {
 //     event.preventDefault(); // Prevent the default behavior of the trash icon
 
 //     const noteElement = event.target.closest('.note'); // Find the parent note element
-//     const notesContainer = noteElement.parentElement;
+//     // const notesContainer = noteElement.parentElement;
 //     const existingNotes = JSON.parse(localStorage.getItem('notes'));
 
 //     // Find the index of the note in the existing notes array
-//     const noteIndex = Array.from(notesContainer.children).indexOf(noteElement);
+//     const noteIndex = Array.from(notes.children).indexOf(noteElement);
 
 //     // Remove the note from the DOM
 //     noteElement.remove();
@@ -210,47 +210,17 @@ document.addEventListener('mouseover', (event) => {
 //     alert('Are you sure you want to delete');
 //   }
 // });
-// document.addEventListener('click', function removeNoteOnClick(event) {
-//   if (event.target.classList.contains('fa-trash')) {
-//     event.preventDefault(); // Prevent the default behavior of the trash icon
 
-//     const noteElement = event.target.closest('.note'); // Find the parent note element
-//     const notesContainer = noteElement.parentElement;
-//     const existingNotes = JSON.parse(localStorage.getItem('notes'));
-
-//     // Find the index of the note in the existing notes array
-//     const noteIndex = Array.from(notesContainer.children).indexOf(noteElement);
-
-//     // Remove the note from the DOM
-//     noteElement.remove();
-
-//     // Remove the note from the existing notes array
-//     existingNotes.splice(noteIndex, 1);
-
-//     // Update the notes array in localStorage
-//     localStorage.setItem('notes', JSON.stringify(existingNotes));
-
-//     alert('Are you sure you want to delete');
-
-//     // Remove the event listener after the first click
-//     document.removeEventListener('click', removeNoteOnClick);
-//   }
-// });
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('fa-trash')) {
-    const noteElement = event.target.parentElement;
+    const noteElement = event.target.closest('.note');
     const existingNotes = JSON.parse(localStorage.getItem('notes'));
 
-    // Find the index of the note in the existing notes array
-    const noteIndex = Array.from(document.querySelectorAll('.note')).indexOf(noteElement);
+    const noteIndex = Array.from(notes.children).indexOf(noteElement);
 
-    // Remove the note from the DOM
-    noteElement.remove();
-
-    // Remove the note from the existing notes array
+    noteElement.parentNode.removeChild(noteElement);
     existingNotes.splice(noteIndex, 1);
 
-    // Update the notes array in localStorage
     localStorage.setItem('notes', JSON.stringify(existingNotes));
 
     alert('Are you sure you want to delete');
