@@ -190,12 +190,12 @@ document.addEventListener('mouseover', (event) => {
 // });
 
 
-// document.addEventListener('click', (event) => {
-//   if(event.target.classList.contains("fa-trash")) {
-//     event.target.parentElement.remove('notes');
-//     // alert("Are you sure you want to delete");
-//   } 
-//  })
+document.addEventListener('click', (event) => {
+  if(event.target.classList.contains("fa-trash")) {
+    event.target.parentElement.remove('notes');
+    // alert("Are you sure you want to delete");
+  } 
+ })
 
 document.addEventListener('click', (event) => {
   if(event.target.classList.contains("fa-trash")) {
