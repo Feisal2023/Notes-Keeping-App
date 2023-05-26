@@ -188,14 +188,36 @@ document.addEventListener('mouseover', (event) => {
 //     alert('Are you sure you want to delete');
 //   }
 // });
-
-
 document.addEventListener('click', (event) => {
-  if(event.target.classList.contains("fa-trash")) {
-    event.target.parentElement.remove('notes');
-    // alert("Are you sure you want to delete");
-  } 
- })
+  if (event.target.classList.contains('fa-trash')) {
+    const noteElement = event.target.closest('.note'); // Find the parent note element
+
+    // Confirm the deletion with the user
+    if (confirm('Are you sure you want to delete this note?')) {
+      // Remove the note from the DOM
+      noteElement.remove();
+
+      // Get existing notes from localStorage
+      const existingNotes = JSON.parse(localStorage.getItem('notes')) || [];
+
+      // Filter out the deleted note from the existing notes array
+      const updatedNotes = existingNotes.filter((note) => {
+        return (
+          note.title !== noteElement.querySelector('.title-text').textContent ||
+          note.content !== noteElement.querySelector('.note-blog').textContent
+        );
+      });
+
+      // Update the notes array in localStorage
+      localStorage.setItem('notes', JSON.stringify(updatedNotes));
+
+      // Show a success message
+      showMessageForNote('Note deleted successfully');
+    }
+  }
+});
+
+
 
 document.addEventListener('click', (event) => {
   if(event.target.classList.contains("fa-trash")) {
