@@ -164,29 +164,7 @@ document.addEventListener('mouseover', (event) => {
     event.target.querySelector('.fa-trash').classList.remove('show');
   } 
   })
-//   document.addEventListener('DOMContentLoaded', () => {
-//   document.addEventListener('click', (event) => {
-//     if (event.target.classList.contains('fa-trash')) {
-//       const noteElement = event.target.parentElement;
-//       const notesContainer = noteElement.parentElement;
-//       const existingNotes = JSON.parse(localStorage.getItem('notes'));
-  
-//       // Find the index of the note in the existing notes array
-//       const noteIndex = Array.from(notesContainer.children).indexOf(noteElement);
-  
-//       // Remove the note from the DOM
-//       noteElement.remove();
-  
-//       // Remove the note from the existing notes array
-//       existingNotes.splice(noteIndex, 1);
-  
-//       // Update the notes array in localStorage
-//       localStorage.setItem('notes', JSON.stringify(existingNotes));
-  
-//       alert('Are you sure you want to delete');
-//     }
-//   });
-// });
+
 // document.addEventListener('click', (event) => {
 //   if (event.target.classList.contains('fa-trash')) {
 //     event.preventDefault(); // Prevent the default behavior of the trash icon
@@ -211,26 +189,20 @@ document.addEventListener('mouseover', (event) => {
 //   }
 // });
 
+
+// document.addEventListener('click', (event) => {
+//   if(event.target.classList.contains("fa-trash")) {
+//     event.target.parentElement.remove('notes');
+//     // alert("Are you sure you want to delete");
+//   } 
+//  })
+
 document.addEventListener('click', (event) => {
-  if (event.target.classList.contains('fa-trash')) {
-    const noteElement = event.target.closest('.note');
-    const existingNotes = JSON.parse(localStorage.getItem('notes'));
-
-    const noteIndex = Array.from(notes.children).indexOf(noteElement);
-
-    noteElement.parentNode.removeChild(noteElement);
-    existingNotes.splice(noteIndex, 1);
-
-    localStorage.setItem('notes', JSON.stringify(existingNotes));
-
-    alert('Are you sure you want to delete');
-  }
-});
-
-
-
-
- 
+  if(event.target.classList.contains("fa-trash")) {
+    event.target.parentElement.remove('note');
+    alert("Are you sure you want to delete");
+  } 
+ })
   // event listener for editing
 
 const showNoteTextUpdates = () => {
