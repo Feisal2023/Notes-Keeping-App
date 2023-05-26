@@ -242,7 +242,7 @@ document.addEventListener('click', (event) => {
     const existingNotes = JSON.parse(localStorage.getItem('notes'));
 
     // Find the index of the note in the existing notes array
-    const noteIndex = Array.from(notes.children).indexOf(noteElement);
+    const noteIndex = Array.from(document.querySelectorAll('.note')).indexOf(noteElement);
 
     // Remove the note from the DOM
     noteElement.remove();
@@ -256,6 +256,7 @@ document.addEventListener('click', (event) => {
     alert('Are you sure you want to delete');
   }
 });
+
 
 
 
